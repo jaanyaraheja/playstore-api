@@ -19,8 +19,9 @@ var rdb *redis.Client
 func main() {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatalln("error loading .env file")
+    	log.Println("warning: .env file not found, continuing with system env variables")
 	}
+
 
 	if os.Getenv("ROLLBAR_TOKEN") != "" {
 		rollbar.SetToken(os.Getenv("ROLLBAR_TOKEN"))
