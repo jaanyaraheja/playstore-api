@@ -39,7 +39,7 @@ func fetchHTML(packageID string) (string, int) {
 		rollbar.Warning(fmt.Sprintf("redis error for id = %s", packageID))
 	}
 
-	playstoreURL := fmt.Sprintf("https://play.google.com/store/apps/details?id=%s", packageID)
+	playstoreURL := fmt.Sprintf("https://play.google.com/store/apps/details?id=%s&gl=IN&hl=en_IN", packageID)
 	res, err := http.Get(playstoreURL)
 	if err != nil {
 		rollbar.Error(fmt.Sprintf("error requesting playstore URL for id = %s, err = %s\n", packageID, err.Error()))
